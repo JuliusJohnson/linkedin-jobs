@@ -5,7 +5,6 @@ import time
 
 getdate = datetime.now().strftime("%Y-%m-%d")
 
-
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
 
     
@@ -22,7 +21,6 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     blob = bucket.blob(destination_blob_name)
 
     source_file_name = blob.upload_from_filename(source_file_name)
-  
 
     print(
         "File {} uploaded to {}.".format(
