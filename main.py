@@ -1,9 +1,10 @@
+
 import time, glob, os, csv, pandas as pd
 from datetime import datetime
 import gcp, bigquery, linkedin
 
 getdate = datetime.now().strftime("%Y-%m-%d")
-
+print(f"#####{getdate}#####")
 def combine_csv():
     extension = 'csv'
     os.chdir("output")
@@ -20,7 +21,6 @@ def scraper():
     positions.to_csv(f"/home/julius/Documents/programming/python/projects/linkedin_database/output/{getdate}-jobs.csv")
 
 #runs program
-print(f"#####{getdate}#####")
 scraper()
 combine_csv()
 sourceFile = str(f"/home/julius/Documents/programming/python/projects/linkedin_database/export/{getdate}-export.csv")

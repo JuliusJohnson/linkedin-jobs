@@ -1,13 +1,12 @@
 from bs4 import BeautifulSoup
 import json
-import requests, pandas as pd
+import requests
 from datetime import datetime
 
 class jobs:
     def __init__(self,url):
         self.url = url #"https://www.linkedin.com/jobs/data-analyst-jobs-atlanta-ga?position=1&pageNum=0"
     
-
     def scrape_site(self):
             data_dict = {'scrapped_date':[], 'job_title':[], 'company':[], 'location': [], 'datetime':[], 'url':[]}
             r = requests.get(self.url)
@@ -24,7 +23,6 @@ class jobs:
                 datetime_soup = soup.find_all('time')
                 #url
                 hyperlink_soup = soup.find_all('a', {'class':"result-card__full-card-link"})
-
 
                 for i in range(len(job_links)):
                     data_dict['job_title'].append(job_links[i].getText())
